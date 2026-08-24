@@ -833,23 +833,29 @@ main {
 .site-footer {
   position: relative;
   text-align: center;
-  padding: 2.5rem 1rem 4.5rem;
+  padding: 0 1rem 4.5rem;
   color: var(--ink-soft);
   font-family: var(--font-serif);
   font-size: 1.05rem;
   border-top: 1px solid var(--line);
-  min-height: 42vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .footer-top {
   width: 100%;
   max-width: 36rem;
-  margin: auto;
-  padding: 1rem;
+  margin: 0;
+  padding: 0 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .site-footer p {
