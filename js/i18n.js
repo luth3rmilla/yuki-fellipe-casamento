@@ -63,8 +63,9 @@ const translations = {
     minutes: "Min",
     seconds: "Seg",
     countdownDone: "É o grande dia!",
-    bibleVerse: "O que Deus uniu, o homem não separe.",
-    bibleRef: "Mateus 19:6",
+    bibleVerse:
+      "Assim, já não são dois, mas uma só carne. Portanto, o que Deus uniu, o homem não separe.",
+    bibleRef: "Marcos 10:8–9",
   },
   en: {
     langName: "English",
@@ -130,8 +131,9 @@ const translations = {
     minutes: "Min",
     seconds: "Sec",
     countdownDone: "It's the big day!",
-    bibleVerse: "What God has joined together, let no one separate.",
-    bibleRef: "Matthew 19:6",
+    bibleVerse:
+      "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate.",
+    bibleRef: "Mark 10:8–9",
   },
   zh: {
     langName: "中文",
@@ -196,8 +198,8 @@ const translations = {
     minutes: "分",
     seconds: "秒",
     countdownDone: "就是今天！",
-    bibleVerse: "所以神所配合的，人不可分开。",
-    bibleRef: "马太福音 19:6",
+    bibleVerse: "这样，他们不再是两个人，乃是一体的了。所以神配合的，人不可分开。",
+    bibleRef: "马可福音 10:8–9",
   },
 };
 
