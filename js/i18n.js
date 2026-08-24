@@ -63,6 +63,8 @@ const translations = {
     minutes: "Min",
     seconds: "Seg",
     countdownDone: "É o grande dia!",
+    bibleVerse: "O que Deus uniu, o homem não separe.",
+    bibleRef: "Mateus 19:6",
   },
   en: {
     langName: "English",
@@ -128,6 +130,8 @@ const translations = {
     minutes: "Min",
     seconds: "Sec",
     countdownDone: "It's the big day!",
+    bibleVerse: "What God has joined together, let no one separate.",
+    bibleRef: "Matthew 19:6",
   },
   zh: {
     langName: "中文",
@@ -192,6 +196,8 @@ const translations = {
     minutes: "分",
     seconds: "秒",
     countdownDone: "就是今天！",
+    bibleVerse: "所以神所配合的，人不可分开。",
+    bibleRef: "马太福音 19:6",
   },
 };
 
