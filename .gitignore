@@ -1,0 +1,6 @@
+.DS_Store
+Fotos/
+Musicas/
+*.log
+.vscode/
+.idea/

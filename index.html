@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Yuki e Fellipe — Casamento · 03 de Outubro de 2026 · Catembe Gallery Hotel"
+    />
+    <title>Yuki & Fellipe · Casamento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Manrope:wght@400;500;600&family=Noto+Sans+SC:wght@400;500&family=Noto+Serif+SC:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="siteHeader">
+      <a class="brand" href="#home" data-nav="home">Yuki &amp; Fellipe</a>
+
+      <nav class="nav" id="mainNav" aria-label="Primary">
+        <button type="button" data-nav="home" class="is-active" data-i18n="nav.home">Início</button>
+        <button type="button" data-nav="photos" data-i18n="nav.photos">Fotos</button>
+        <button type="button" data-nav="location" data-i18n="nav.location">Local</button>
+        <button type="button" data-nav="gifts" data-i18n="nav.gifts">Presentes</button>
+        <button type="button" data-nav="rsvp" data-i18n="nav.rsvp">Confirmar</button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="pt" class="is-active">PT</button>
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="zh">中文</button>
+        </div>
+        <button
+          type="button"
+          class="music-btn"
+          id="musicBtn"
+          aria-pressed="false"
+          title="Music"
+        >
+          <svg id="iconPlay" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+          <svg id="iconPause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden>
+            <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
+          </svg>
+        </button>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Menu">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z" />
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <audio id="bgMusic" loop preload="metadata">
+      <source src="public/music/just-the-two-of-us.mp3" type="audio/mpeg" />
+    </audio>
+
+    <main>
+      <!-- HOME -->
+      <section class="panel is-active" id="panel-home" data-panel="home">
+        <div class="hero">
+          <div class="carousel" id="carousel" aria-hidden="true">
+            <div class="carousel-slide is-active">
+              <img src="public/images/photo-1.jpg" alt="" />
+            </div>
+            <div class="carousel-slide">
+              <img src="public/images/photo-2.jpg" alt="" />
+            </div>
+            <div class="carousel-slide">
+              <img src="public/images/photo-3.jpg" alt="" />
+            </div>
+            <div class="carousel-veil"></div>
+          </div>
+
+          <div class="hero-content">
+            <p class="invite-lead" data-i18n="inviteLead">
+              Com alegria, os pais convidam para o casamento de
+            </p>
+            <h1 class="names">
+              Yuki <span class="amp" data-i18n="and">&amp;</span> Fellipe
+            </h1>
+            <p class="wedding-date" data-i18n="date">03 de Outubro de 2026</p>
+            <p class="ceremony-line" data-i18n="timePlace">
+              Cerimônia religiosa e Copo d'Água · 14h
+            </p>
+            <p class="venue-line" data-i18n="venue">Catembe Gallery Hotel</p>
+          </div>
+
+          <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel"></div>
+        </div>
+
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="parentsTitle">Com a bênção das nossas famílias</h2>
+          </div>
+          <div class="parents-grid">
+            <div class="family">
+              <h3 data-i18n="brideParents">Pais da Noiva</h3>
+              <ul>
+                <li>
+                  <span class="role" data-i18n="father">Pai</span>
+                  Ruirong Huang
+                </li>
+                <li>
+                  <span class="role" data-i18n="mother">Mãe</span>
+                  Suling Xu
+                </li>
+              </ul>
+            </div>
+            <div class="family">
+              <h3 data-i18n="groomParents">Pais do Noivo</h3>
+              <ul>
+                <li>
+                  <span class="role" data-i18n="father">Pai</span>
+                  Denilson José Theodoro
+                  <div class="memory">(<span data-i18n="inMemory">em memória</span>)</div>
+                </li>
+                <li>
+                  <span class="role" data-i18n="father">Pai</span>
+                  Carvalho Carlos Ecole
+                  <div class="memory">(<span data-i18n="inMemory">em memória</span>)</div>
+                </li>
+                <li>
+                  <span class="role" data-i18n="mother">Mãe</span>
+                  Edilene Ecole
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="section-head" style="margin-top: 3rem">
+            <h2 data-i18n="phrasesTitle">Palavras do coração</h2>
+          </div>
+          <div class="phrases">
+            <article class="phrase">
+              <p class="who" data-i18n="bridePhraseLabel">Yuki para Fellipe</p>
+              <blockquote data-i18n="bridePhrase"></blockquote>
+            </article>
+            <article class="phrase">
+              <p class="who" data-i18n="groomPhraseLabel">Fellipe para Yuki</p>
+              <blockquote data-i18n="groomPhrase"></blockquote>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHOTOS -->
+      <section class="panel" id="panel-photos" data-panel="photos">
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="photosTitle">Nossos momentos</h2>
+            <p data-i18n="photosSubtitle"></p>
+          </div>
+          <div class="photo-grid">
+            <figure><img src="public/images/photo-1.jpg" alt="Yuki e Fellipe" loading="lazy" /></figure>
+            <figure><img src="public/images/photo-2.jpg" alt="Yuki e Fellipe" loading="lazy" /></figure>
+            <figure><img src="public/images/photo-3.jpg" alt="Yuki e Fellipe" loading="lazy" /></figure>
+            <figure><img src="public/images/photo-4.jpg" alt="Yuki e Fellipe" loading="lazy" /></figure>
+            <figure><img src="public/images/photo-5.jpg" alt="Yuki e Fellipe" loading="lazy" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- LOCATION -->
+      <section class="panel" id="panel-location" data-panel="location">
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="locationTitle">Onde nos encontrar</h2>
+            <p data-i18n="locationSubtitle"></p>
+          </div>
+          <div class="location-layout">
+            <div class="location-card">
+              <h3 data-i18n="venue">Catembe Gallery Hotel</h3>
+              <p data-i18n="ceremony"></p>
+              <p><strong data-i18n="date"></strong> · 14:00</p>
+              <p data-i18n="address"></p>
+              <a
+                class="btn"
+                href="https://www.google.com/maps/search/?api=1&query=Catembe+Gallery+Hotel+Rua+B+77+Catembe+Maputo"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-i18n="openMaps"
+              >
+                Abrir no Google Maps
+              </a>
+            </div>
+            <div class="map-frame">
+              <iframe
+                title="Catembe Gallery Hotel Map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://maps.google.com/maps?q=Catembe%20Gallery%20Hotel%2C%20Rua%20B%2077%2C%20Catembe%2C%20Maputo&z=15&output=embed"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GIFTS -->
+      <section class="panel" id="panel-gifts" data-panel="gifts">
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="giftsTitle">Presentes</h2>
+            <p data-i18n="giftsSubtitle"></p>
+          </div>
+          <div class="gifts-grid">
+            <div class="gift-item">
+              <h3 data-i18n="bankAccount">Conta bancária — Fellipe</h3>
+              <div class="gift-row">
+                <div>
+                  <div class="gift-label" data-i18n="bankName">BCI</div>
+                  <div class="gift-value">BCI</div>
+                </div>
+              </div>
+              <div class="gift-row">
+                <div>
+                  <div class="gift-label" data-i18n="nib">NIB</div>
+                  <div class="gift-value" id="nibValue">0008.0000.03255725101.95</div>
+                </div>
+                <button type="button" class="copy-btn" data-copy="0008.0000.03255725101.95" data-i18n="copy">
+                  Copiar
+                </button>
+              </div>
+            </div>
+            <div class="gift-item">
+              <h3 data-i18n="emola">E-Mola — Fellipe</h3>
+              <div class="gift-row">
+                <div>
+                  <div class="gift-label">E-Mola</div>
+                  <div class="gift-value">879700075</div>
+                </div>
+                <button type="button" class="copy-btn" data-copy="879700075" data-i18n="copy">
+                  Copiar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RSVP -->
+      <section class="panel" id="panel-rsvp" data-panel="rsvp">
+        <div class="section">
+          <div class="section-head">
+            <h2 data-i18n="rsvpTitle">Confirmar presença</h2>
+            <p data-i18n="rsvpSubtitle"></p>
+          </div>
+          <form class="rsvp-form" id="rsvpForm" novalidate>
+            <div class="field">
+              <label data-i18n="attending">Vai comparecer?</label>
+              <div class="attend-toggle">
+                <label>
+                  <input type="radio" name="attending" value="yes" required />
+                  <span data-i18n="yes">Sim</span>
+                </label>
+                <label>
+                  <input type="radio" name="attending" value="no" />
+                  <span data-i18n="no">Não</span>
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label for="guestName" data-i18n="name">Nome completo</label>
+              <input id="guestName" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="field">
+              <label for="guestCount" data-i18n="guests">Número de pessoas</label>
+              <input
+                id="guestCount"
+                name="guests"
+                type="number"
+                min="1"
+                max="20"
+                value="1"
+                required
+              />
+            </div>
+            <button type="submit" class="btn" style="width: 100%" data-i18n="submit">
+              Enviar confirmação
+            </button>
+            <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p data-i18n="footer">Yuki &amp; Fellipe · 03.10.2026</p>
+      <p style="font-size: 0.85rem; margin-top: 0.35rem" data-i18n="musicCredit"></p>
+    </footer>
+
+    <div class="music-hint" id="musicHint" data-i18n="musicPlay"></div>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
