@@ -57,6 +57,12 @@ const translations = {
     musicCredit: "Just the Two of Us — Grover Washington Jr. & Bill Withers",
     scroll: "Descubra mais",
     footer: "Yuki & Fellipe · 03.10.2026",
+    countdownLabel: "Falta",
+    days: "Dias",
+    hours: "Horas",
+    minutes: "Min",
+    seconds: "Seg",
+    countdownDone: "É o grande dia!",
   },
   en: {
     langName: "English",
@@ -116,6 +122,12 @@ const translations = {
     musicCredit: "Just the Two of Us — Grover Washington Jr. & Bill Withers",
     scroll: "Discover more",
     footer: "Yuki & Fellipe · 03.10.2026",
+    countdownLabel: "Counting down",
+    days: "Days",
+    hours: "Hours",
+    minutes: "Min",
+    seconds: "Sec",
+    countdownDone: "It's the big day!",
   },
   zh: {
     langName: "中文",
@@ -174,6 +186,12 @@ const translations = {
     musicCredit: "Just the Two of Us — Grover Washington Jr. & Bill Withers",
     scroll: "了解更多",
     footer: "Yuki & Fellipe · 2026.10.03",
+    countdownLabel: "距离婚礼还有",
+    days: "天",
+    hours: "时",
+    minutes: "分",
+    seconds: "秒",
+    countdownDone: "就是今天！",
   },
 };
 

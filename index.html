@@ -89,6 +89,31 @@
               Cerimônia religiosa e Copo d'Água · 14h
             </p>
             <p class="venue-line" data-i18n="venue">Catembe Gallery Hotel</p>
+
+            <div class="countdown" id="countdown" aria-live="polite">
+              <p class="countdown-label" data-i18n="countdownLabel">Contagem regressiva</p>
+              <div class="countdown-grid">
+                <div class="countdown-unit">
+                  <span class="countdown-value" data-unit="days">0</span>
+                  <span class="countdown-unit-label" data-i18n="days">Dias</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-value" data-unit="hours">0</span>
+                  <span class="countdown-unit-label" data-i18n="hours">Horas</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-value" data-unit="minutes">0</span>
+                  <span class="countdown-unit-label" data-i18n="minutes">Minutos</span>
+                </div>
+                <div class="countdown-unit">
+                  <span class="countdown-value" data-unit="seconds">0</span>
+                  <span class="countdown-unit-label" data-i18n="seconds">Segundos</span>
+                </div>
+              </div>
+              <p class="countdown-done" id="countdownDone" hidden data-i18n="countdownDone">
+                É o grande dia!
+              </p>
+            </div>
           </div>
 
           <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Carousel"></div>
@@ -252,13 +277,13 @@
           </div>
           <form class="rsvp-form" id="rsvpForm" novalidate>
             <div class="field">
-              <label data-i18n="attending">Vai comparecer?</label>
-              <div class="attend-toggle">
-                <label>
+              <span class="field-label" data-i18n="attending">Vai comparecer?</span>
+              <div class="attend-toggle" role="radiogroup" aria-label="Attending">
+                <label class="attend-option">
                   <input type="radio" name="attending" value="yes" required />
                   <span data-i18n="yes">Sim</span>
                 </label>
-                <label>
+                <label class="attend-option">
                   <input type="radio" name="attending" value="no" />
                   <span data-i18n="no">Não</span>
                 </label>
@@ -291,7 +316,8 @@
 
     <footer class="site-footer">
       <p data-i18n="footer">Yuki &amp; Fellipe · 03.10.2026</p>
-      <p style="font-size: 0.85rem; margin-top: 0.35rem" data-i18n="musicCredit"></p>
+      <p class="footer-music" data-i18n="musicCredit"></p>
+      <p class="footer-credit">by Luthermilla Ecole</p>
     </footer>
 
     <div class="music-hint" id="musicHint" data-i18n="musicPlay"></div>

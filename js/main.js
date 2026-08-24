@@ -264,11 +264,43 @@
     });
   }
 
+  function setupCountdown() {
+    const root = $("#countdown");
+    const doneEl = $("#countdownDone");
+    if (!root) return;
+
+    // Ceremony: 3 Oct 2026, 14:00 Catembe / Maputo (Africa/Maputo, UTC+2)
+    const weddingAt = new Date("2026-10-03T14:00:00+02:00").getTime();
+
+    const tick = () => {
+      const diff = weddingAt - Date.now();
+      if (diff <= 0) {
+        root.classList.add("is-done");
+        if (doneEl) doneEl.hidden = false;
+        return;
+      }
+      const totalSec = Math.floor(diff / 1000);
+      const days = Math.floor(totalSec / 86400);
+      const hours = Math.floor((totalSec % 86400) / 3600);
+      const minutes = Math.floor((totalSec % 3600) / 60);
+      const seconds = totalSec % 60;
+      const pad = (n) => String(n).padStart(2, "0");
+      root.querySelector('[data-unit="days"]').textContent = String(days);
+      root.querySelector('[data-unit="hours"]').textContent = pad(hours);
+      root.querySelector('[data-unit="minutes"]').textContent = pad(minutes);
+      root.querySelector('[data-unit="seconds"]').textContent = pad(seconds);
+    };
+
+    tick();
+    setInterval(tick, 1000);
+  }
+
   buildDots();
   applyI18n();
   setupNav();
   setupMusic();
   setupCopy();
   setupRsvp();
+  setupCountdown();
   startCarousel();
 })();

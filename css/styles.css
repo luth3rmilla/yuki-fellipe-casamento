@@ -320,6 +320,64 @@ main {
   animation-delay: 0.82s;
 }
 
+.countdown {
+  margin: 1.5rem auto 0;
+  max-width: 420px;
+  opacity: 0;
+  animation: rise 1s 0.95s ease both;
+}
+
+.countdown-label {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.countdown-unit {
+  padding: 0.65rem 0.35rem 0.55rem;
+  background: rgba(255, 252, 248, 0.18);
+  border: 1px solid rgba(255, 252, 248, 0.28);
+  backdrop-filter: blur(6px);
+}
+
+.countdown-value {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: clamp(1.45rem, 4vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-shadow: 0 2px 16px rgba(42, 36, 32, 0.35);
+}
+
+.countdown-unit-label {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.countdown-done {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+}
+
+.countdown.is-done .countdown-grid {
+  display: none;
+}
+
 .carousel-dots {
   position: relative;
   z-index: 3;
@@ -654,16 +712,19 @@ main {
   margin-bottom: 1.15rem;
 }
 
-.field label {
+.field-label,
+.field > label {
   display: block;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.55rem;
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-soft);
 }
 
-.field input,
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="email"],
 .field select {
   width: 100%;
   padding: 0.85rem 0.9rem;
@@ -673,7 +734,9 @@ main {
   outline: none;
 }
 
-.field input:focus,
+.field input[type="text"]:focus,
+.field input[type="number"]:focus,
+.field input[type="email"]:focus,
 .field select:focus {
   border-color: var(--gold);
 }
@@ -681,27 +744,45 @@ main {
 .attend-toggle {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.55rem;
+  gap: 0.65rem;
 }
 
-.attend-toggle label {
-  display: flex;
+.attend-option {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.45rem;
+  gap: 0.55rem;
   margin: 0;
-  padding: 0.85rem;
+  padding: 0.9rem 1rem;
   border: 1px solid var(--line);
   background: var(--white);
   cursor: pointer;
-  text-transform: none;
-  letter-spacing: 0;
-  font-size: 1rem;
   color: var(--ink);
+  font-size: 1rem;
+  letter-spacing: 0;
+  text-transform: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.attend-toggle input {
+.attend-option:hover {
+  border-color: var(--gold-soft);
+}
+
+.attend-option:has(input:checked) {
+  border-color: var(--ink);
+  background: rgba(42, 36, 32, 0.04);
+}
+
+.attend-option input {
+  width: auto;
+  margin: 0;
+  flex: 0 0 auto;
   accent-color: var(--ink);
+}
+
+.attend-option span {
+  flex: 0 0 auto;
+  line-height: 1;
 }
 
 .form-message {
@@ -727,6 +808,25 @@ main {
   font-family: var(--font-serif);
   font-size: 1.05rem;
   border-top: 1px solid var(--line);
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.footer-music {
+  font-size: 0.85rem;
+  margin-top: 0.35rem !important;
+}
+
+.footer-credit {
+  margin-top: 1.15rem !important;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  opacity: 0.75;
 }
 
 .music-hint {
