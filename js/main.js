@@ -26,8 +26,12 @@
   function applyI18n() {
     document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
     $$("[data-i18n]").forEach((el) => {
-      const value = t(el.getAttribute("data-i18n"));
-      if (typeof value === "string") el.textContent = value;
+      const key = el.getAttribute("data-i18n");
+      const value = t(key);
+      // Never overwrite visible copy with a missing-key fallback (e.g. "bibleVerse")
+      if (typeof value === "string" && value !== key) {
+        el.textContent = value;
+      }
     });
     $$(".lang-switch [data-lang]").forEach((btn) => {
       btn.classList.toggle("is-active", btn.dataset.lang === lang);
