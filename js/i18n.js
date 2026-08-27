@@ -66,13 +66,6 @@ const translations = {
     bibleVerse:
       "Assim, já não são dois, mas uma só carne. Portanto, o que Deus uniu, o homem não separe.",
     bibleRef: "Marcos 10:8–9",
-    onboardLead:
-      "Com a bênção de Deus e das nossas famílias, Yuki e Fellipe têm a honra de convidá-lo(a) ao seu casamento.",
-    onboardCta: "Clique no botão abaixo para confirmar a sua presença e obter mais informações!",
-    onboardOpen: "Abrir Convite",
-    onboardRsvpHint: "Confirme a sua presença aqui",
-    onboardGiftsHint: "Informações sobre presentes aqui",
-    onboardGotIt: "Entendi",
   },
   en: {
     langName: "English",
@@ -141,13 +134,6 @@ const translations = {
     bibleVerse:
       "So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate.",
     bibleRef: "Mark 10:8–9",
-    onboardLead:
-      "With God's blessing and that of our families, Yuki and Fellipe have the honour of inviting you to their wedding.",
-    onboardCta: "Tap the button below to confirm your attendance and see more details!",
-    onboardOpen: "Open Invitation",
-    onboardRsvpHint: "Confirm your attendance here",
-    onboardGiftsHint: "Gift information here",
-    onboardGotIt: "Got it",
   },
   zh: {
     langName: "中文",
@@ -214,12 +200,6 @@ const translations = {
     countdownDone: "就是今天！",
     bibleVerse: "这样，他们不再是两个人，乃是一体的了。所以神配合的，人不可分开。",
     bibleRef: "马可福音 10:8–9",
-    onboardLead: "承蒙上帝与双方家人祝福，Yuki 与 Fellipe 诚挚邀请您出席婚礼。",
-    onboardCta: "请点击下方按钮确认出席并查看更多资讯！",
-    onboardOpen: "打开请柬",
-    onboardRsvpHint: "在此确认出席",
-    onboardGiftsHint: "礼物资讯在此",
-    onboardGotIt: "知道了",
   },
 };
 

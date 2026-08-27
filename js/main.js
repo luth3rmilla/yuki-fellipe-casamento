@@ -2,7 +2,6 @@
   const { translations } = window.WeddingI18n;
   const STORAGE_LANG = "yf-lang";
   const STORAGE_RSVP = "yf-rsvps";
-  const STORAGE_ONBOARD = "yf-onboarded";
 
   // Paste your Google Apps Script Web App URL after deploying scripts/rsvp-apps-script.gs
   const RSVP_ENDPOINT = "";
@@ -10,7 +9,6 @@
   let lang = localStorage.getItem(STORAGE_LANG) || "pt";
   let carouselIndex = 0;
   let carouselTimer = null;
-  let playMusicFn = null;
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -114,7 +112,7 @@
       iconPause.hidden = !playing;
     };
 
-    playMusicFn = async () => {
+    const playMusic = async () => {
       try {
         await audio.play();
         hint?.classList.remove("is-visible");
@@ -127,7 +125,7 @@
 
     btn.addEventListener("click", async () => {
       if (audio.paused) {
-        await playMusicFn();
+        await playMusic();
       } else {
         audio.pause();
         sync();
@@ -137,91 +135,18 @@
     audio.addEventListener("play", sync);
     audio.addEventListener("pause", sync);
     sync();
-  }
 
-  function positionNavHints() {
-    const hints = $("#navHints");
-    if (!hints || hints.hidden) return;
-
-    const isMobile = window.matchMedia("(max-width: 860px)").matches;
-    if (isMobile) {
-      $("#mainNav")?.classList.add("is-open");
-    }
-
-    const place = (hintId, navId) => {
-      const hint = $(hintId);
-      const btn = $(`.nav [data-nav="${navId}"]`);
-      if (!hint || !btn) return;
-
-      const rect = btn.getBoundingClientRect();
-      hint.style.left = `${rect.left + rect.width / 2}px`;
-      hint.style.top = `${rect.bottom + 10}px`;
-      hint.style.transform = "translateX(-50%)";
-      btn.classList.add("is-hinted");
+    // Browsers block autoplay until the guest taps anywhere — start on first touch
+    const startOnInteraction = async () => {
+      if (!audio.paused) return;
+      const ok = await playMusic();
+      if (ok) {
+        document.removeEventListener("click", startOnInteraction);
+        document.removeEventListener("touchstart", startOnInteraction);
+      }
     };
-
-    $$(".nav button.is-hinted").forEach((b) => b.classList.remove("is-hinted"));
-    place("#hintRsvp", "rsvp");
-    place("#hintGifts", "gifts");
-  }
-
-  function dismissNavHints() {
-    const hints = $("#navHints");
-    if (!hints) return;
-    hints.hidden = true;
-    hints.setAttribute("aria-hidden", "true");
-    $$(".nav button.is-hinted").forEach((b) => b.classList.remove("is-hinted"));
-    $("#mainNav")?.classList.remove("is-open");
-    localStorage.setItem(STORAGE_ONBOARD, "1");
-  }
-
-  function showNavHints() {
-    const hints = $("#navHints");
-    if (!hints) return;
-    hints.hidden = false;
-    hints.setAttribute("aria-hidden", "false");
-    requestAnimationFrame(() => {
-      positionNavHints();
-      setTimeout(positionNavHints, 120);
-    });
-  }
-
-  function setupOnboarding() {
-    const overlay = $("#onboarding");
-    const openBtn = $("#onboardOpen");
-    const dismissBtn = $("#navHintsDismiss");
-    if (!overlay) return;
-
-    const finishOnboarding = () => {
-      overlay.classList.add("is-hidden");
-      overlay.setAttribute("aria-hidden", "true");
-      showNavHints();
-    };
-
-    if (localStorage.getItem(STORAGE_ONBOARD) === "1") {
-      overlay.classList.add("is-hidden");
-      overlay.setAttribute("aria-hidden", "true");
-      return;
-    }
-
-    document.body.style.overflow = "hidden";
-
-    openBtn?.addEventListener("click", async () => {
-      document.body.style.overflow = "";
-      await playMusicFn?.();
-      finishOnboarding();
-    });
-
-    dismissBtn?.addEventListener("click", dismissNavHints);
-    $(".nav-hints-backdrop")?.addEventListener("click", dismissNavHints);
-
-    $$('.nav [data-nav="rsvp"], .nav [data-nav="gifts"]').forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (!$("#navHints")?.hidden) dismissNavHints();
-      });
-    });
-
-    window.addEventListener("resize", positionNavHints);
+    document.addEventListener("click", startOnInteraction, { once: false });
+    document.addEventListener("touchstart", startOnInteraction, { once: false, passive: true });
   }
 
   function setupCopy() {
@@ -389,7 +314,6 @@
   applyI18n();
   setupNav();
   setupMusic();
-  setupOnboarding();
   setupCopy();
   setupRsvp();
   setupCountdown();
