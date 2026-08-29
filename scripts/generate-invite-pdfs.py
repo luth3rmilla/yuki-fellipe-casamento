@@ -30,7 +30,7 @@ LANGS = {
     "pt": {
         "month": "OUTUBRO",
         "year": "2 0 2 6",
-        "weekday": "S E X T A",
+        "weekday": "S Á B A D O",
         "day": "0 3",
         "blessing": "Com a bênção de Deus e das nossas famílias",
         "names": "Yuki & Fellipe",
@@ -44,6 +44,11 @@ LANGS = {
         "cta1": "Clique no botão abaixo para confirmar a sua presença",
         "cta2": "e obter mais informações!",
         "button": spaced("Abrir Convite"),
+        "space_note": (
+            "Nota: Uma vez que o espaço é bastante reduzido, é necessário "
+            "confirmar a presença através do link, para facilitar a "
+            "preparação dos alimentos por parte do hotel."
+        ),
         "rsvp_note1": "Por favor, confirmar presença até o dia",
         "rsvp_note2": "03 de Outubro de 2026",
         "file_one": "OnBoard_CONVITE_YUKI-FELLIPE_PT_1pessoa.pdf",
@@ -53,7 +58,7 @@ LANGS = {
     "en": {
         "month": "OCTOBER",
         "year": "2 0 2 6",
-        "weekday": "F R I D A Y",
+        "weekday": "S A T U R D A Y",
         "day": "0 3",
         "blessing": "With God's blessing and that of our families",
         "names": "Yuki & Fellipe",
@@ -67,6 +72,10 @@ LANGS = {
         "cta1": "Tap the button below to confirm your attendance",
         "cta2": "and see all the details!",
         "button": spaced("Open Invitation"),
+        "space_note": (
+            "Note: As space is quite limited, please confirm your attendance "
+            "via the link to help the hotel prepare the catering."
+        ),
         "rsvp_note1": "Please confirm your attendance by",
         "rsvp_note2": "October 3, 2026",
         "file_one": "OnBoard_CONVITE_YUKI-FELLIPE_EN_1guest.pdf",
@@ -76,7 +85,7 @@ LANGS = {
     "zh": {
         "month": "十月",
         "year": "2 0 2 6",
-        "weekday": "星 期 五",
+        "weekday": "星 期 六",
         "day": "0 3",
         "blessing": "承蒙上帝与双方家人祝福",
         "names": "Yuki & Fellipe",
@@ -90,6 +99,10 @@ LANGS = {
         "cta1": "请点击下方按钮确认出席",
         "cta2": "并查看婚礼详情！",
         "button": "打 开 请 柬",
+        "space_note": (
+            "提示：因场地空间有限，请务必通过链接确认出席，"
+            "以便酒店安排餐食准备。"
+        ),
         "rsvp_note1": "请于以下日期前确认出席",
         "rsvp_note2": "2026年10月3日",
         "file_one": "OnBoard_CONVITE_YUKI-FELLIPE_ZH_1guest.pdf",
@@ -133,13 +146,23 @@ def center_text(
     pdf.cell(0, size * 0.45, text, align="C", new_x="LMARGIN", new_y="NEXT")
 
 
+def center_wrapped(pdf: InvitePDF, text: str, size: float = 9, color=INK_SOFT):
+    pdf.set_text_color(*color)
+    if pdf.use_unicode:
+        pdf.set_font(pdf.body_font, size=size)
+    else:
+        pdf.set_font("Times", "I", size)
+    pdf.set_x(28)
+    pdf.multi_cell(154, 5, text, align="C")
+
+
 def build_pdf(content: dict, use_unicode: bool) -> InvitePDF:
     pdf = InvitePDF(use_unicode=use_unicode)
     pdf.add_page()
     pdf.set_fill_color(*BG)
     pdf.rect(0, 0, 210, 297, style="F")
 
-    center_text(pdf, content["month"], 38, 13 if not use_unicode else 12, "B" if not use_unicode else "")
+    center_text(pdf, content["month"], 34, 13 if not use_unicode else 12, "B" if not use_unicode else "")
     pdf.ln(2)
     if pdf.use_unicode:
         pdf.set_font(pdf.body_font, size=11)
@@ -154,29 +177,32 @@ def build_pdf(content: dict, use_unicode: bool) -> InvitePDF:
         pdf.set_font("Times", "B", 11)
     pdf.cell(0, 5, f'{content["weekday"]}   {content["day"]}', align="C", new_x="LMARGIN", new_y="NEXT")
 
-    pdf.ln(10)
+    pdf.ln(8)
     center_text(pdf, content["blessing"], pdf.get_y(), 11)
 
-    pdf.ln(8)
+    pdf.ln(7)
     center_text(pdf, content["names"], pdf.get_y(), 26 if not use_unicode else 22, "I" if not use_unicode else "", GOLD)
 
-    pdf.ln(6)
+    pdf.ln(5)
     center_text(pdf, content["invite_line1"], pdf.get_y(), 12)
     center_text(pdf, content["invite_line2"], pdf.get_y() + 2, 12)
     center_text(pdf, content["date_full"], pdf.get_y() + 2, 12, "B" if not use_unicode else "")
 
-    pdf.ln(6)
+    pdf.ln(5)
     center_text(pdf, content["ceremony"], pdf.get_y(), 10, color=INK_SOFT)
     center_text(pdf, content["venue"], pdf.get_y() + 1, 10, color=INK_SOFT)
 
-    pdf.ln(12)
+    pdf.ln(10)
     center_text(pdf, content["valid_for"], pdf.get_y(), 11, "B" if not use_unicode else "")
 
-    pdf.ln(10)
+    pdf.ln(8)
+    center_wrapped(pdf, content["space_note"], size=9, color=INK_SOFT)
+
+    pdf.ln(8)
     center_text(pdf, content["cta1"], pdf.get_y(), 10)
     center_text(pdf, content["cta2"], pdf.get_y() + 1, 10)
 
-    pdf.ln(12)
+    pdf.ln(10)
     btn_w, btn_h = 118, 14
     btn_x = (210 - btn_w) / 2
     btn_y = pdf.get_y()
@@ -192,11 +218,11 @@ def build_pdf(content: dict, use_unicode: bool) -> InvitePDF:
     pdf.set_text_color(*INK)
     pdf.cell(btn_w, 6, content["button"], align="C")
 
-    pdf.ln(16)
-    center_text(pdf, content["rsvp_note1"], pdf.get_y() + 8, 9, color=INK_SOFT)
+    pdf.ln(14)
+    center_text(pdf, content["rsvp_note1"], pdf.get_y() + 6, 9, color=INK_SOFT)
     center_text(pdf, content["rsvp_note2"], pdf.get_y() + 1, 9, "B" if not use_unicode else "", INK_SOFT)
 
-    pdf.ln(10)
+    pdf.ln(8)
     center_text(pdf, SITE_URL, pdf.get_y(), 8, color=GOLD)
     pdf.link(22, pdf.get_y() - 4, 166, 6, SITE_URL)
 
