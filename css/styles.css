@@ -247,6 +247,11 @@ main {
   filter: saturate(1.05) contrast(1.02);
 }
 
+/* Keep faces in frame for the deck portrait (man's head near top of photo) */
+.carousel-slide img.carousel-img--heads {
+  object-position: center 18%;
+}
+
 .carousel-veil {
   position: absolute;
   inset: 0;
