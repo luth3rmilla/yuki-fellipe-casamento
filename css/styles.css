@@ -576,15 +576,27 @@ main {
   animation: photoEnter 0.9s 0.05s ease both;
 }
 .photo-grid figure:nth-child(2) {
-  animation: photoEnter 0.9s 0.15s ease both;
+  animation: photoEnter 0.9s 0.1s ease both;
 }
 .photo-grid figure:nth-child(3) {
-  animation: photoEnter 0.9s 0.25s ease both;
+  animation: photoEnter 0.9s 0.15s ease both;
 }
 .photo-grid figure:nth-child(4) {
-  animation: photoEnter 0.9s 0.35s ease both;
+  animation: photoEnter 0.9s 0.2s ease both;
 }
 .photo-grid figure:nth-child(5) {
+  animation: photoEnter 0.9s 0.25s ease both;
+}
+.photo-grid figure:nth-child(6) {
+  animation: photoEnter 0.9s 0.3s ease both;
+}
+.photo-grid figure:nth-child(7) {
+  animation: photoEnter 0.9s 0.35s ease both;
+}
+.photo-grid figure:nth-child(8) {
+  animation: photoEnter 0.9s 0.4s ease both;
+}
+.photo-grid figure:nth-child(n + 9) {
   animation: photoEnter 0.9s 0.45s ease both;
 }
 
