@@ -11,10 +11,11 @@
  * 5. Run setupTriggerOnce() once from the Apps Script editor
  *    (Authorize when prompted — this schedules the Excel email every 15 days)
  *
- * Emails go to: fellipe.theodoro@yahoo.com
+ * Emails go to: fellipe.theodoro@yahoo.com, helloyuki723@gmail.com, luthermilla@gmail.com
  */
 
-var EMAIL_TO = "fellipe.theodoro@yahoo.com";
+var EMAIL_TO =
+  "fellipe.theodoro@yahoo.com, helloyuki723@gmail.com, luthermilla@gmail.com";
 var SHEET_NAME = "RSVPs";
 
 function doPost(e) {
