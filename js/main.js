@@ -3,8 +3,9 @@
   const STORAGE_LANG = "yf-lang";
   const STORAGE_RSVP = "yf-rsvps";
 
-  // Paste your Google Apps Script Web App URL after deploying scripts/rsvp-apps-script.gs
-  const RSVP_ENDPOINT = "";
+  // Google Apps Script Web App for RSVP → Sheet + Excel email every 15 days
+  const RSVP_ENDPOINT =
+    "https://script.google.com/macros/s/AKfycbzfNEWzIMixZ8LVtyCl3MbmtQDEqKXYi_haL-iTQBnlWVvr5M2zWaQxA_0e2At4klQtsw/exec";
 
   let lang = localStorage.getItem(STORAGE_LANG) || "pt";
   let carouselIndex = 0;
